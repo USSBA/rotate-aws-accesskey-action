@@ -1,0 +1,36 @@
+name: 'Rotate Access Key'
+author: 'Infrastructure Automation Services'
+description: 'Rotate AWS Access Key, updates the repos secrets, and removed the old Access Key'
+inputs:
+  token:
+    description: 'A github access token'
+    required: true
+  repo:
+    description: 'A target github repository name'
+    required: true
+  accessKeyId:
+    description: 'Access Key Id'
+    required: true
+  secretKey:
+    description: 'Secret Key associated with the Access Key Id'
+    required: true
+  region:
+    description: 'An AWS Region'
+    required: true
+    default: 'us-east-1'
+  accessKeyIdSecretName:
+    description: 'The Access Key Id Secret Name'
+    required: true
+    default: 'AWS_ACCESS_KEY_ID'
+  secretKeySecretName:
+    description: 'The Secret Key Secret Name'
+    required: true
+    default: 'AWS_SECRET_ACCESS_KEY'
+##outputs:
+##  status:
+##    description: 'A status code'
+##  message:
+##    description: 'A status code message'
+runs:
+  using: 'node12'
+  main: 'index.js'
