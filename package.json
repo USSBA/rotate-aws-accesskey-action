@@ -11,7 +11,7 @@
     "url": "git+https://github.com/ussba/rotate-aws-accesskey-action.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Infrastructure Automation Services",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ussba/rotate-aws-accesskey-action/issues"
@@ -19,6 +19,11 @@
   "homepage": "https://github.com/ussba/rotate-aws-accesskey-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0"
+    "@actions/github": "^4.0.0",
+    "@octokit/endpoint": "^6.0.10",
+    "@octokit/request": "^5.4.12",
+    "awssdk": "^1.0.1",
+    "thread-sleep": "^2.2.0",
+    "tweetsodium": "0.0.5"
   }
 }
