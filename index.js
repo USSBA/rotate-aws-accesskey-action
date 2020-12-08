@@ -14,6 +14,11 @@ function encrypt(key, text) {
   return Buffer.from(data).toString("base64");
 }
 
+function kill() {
+  var pid = core.getState("pidToKill");
+  process.kill(pid);
+}
+
 async function getPublicKey(owner, repo) {
   try {
     var result = await octokit.request(
@@ -27,6 +32,7 @@ async function getPublicKey(owner, repo) {
   } catch (error) {
     core.error(error.message);
     core.setFailed("Could not get the repository public key");
+    kill();
   }
 }
 
@@ -46,6 +52,7 @@ async function putSecret(name, value, owner, repo) {
   } catch (error) {
     core.error(error.message);
     core.setFailed("Could not PUT secret");
+    kill();
   }
 }
 
@@ -63,6 +70,7 @@ async function createAccessKey(accessKeyId, secretAccessKey, region) {
   } catch (error) {
     core.error(error.message);
     core.setFailed("Could not create a new access key");
+    kill();
   }
 }
 
@@ -86,6 +94,7 @@ async function deleteAccessKey(
   } catch (error) {
     core.error(error.message);
     core.setFailed("Could not delete access key");
+    kill();
   }
 }
 
